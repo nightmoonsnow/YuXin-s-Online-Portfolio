@@ -1,0 +1,464 @@
+/* 資傳3A_1111841廖羽歆_作品集設計與展現_線上作品集製作 */
+
+
+
+/*  作品集配色註解
+    #f4e6bd：輔色（米杏底）;
+    #cf9f62：主色（橘棕）;
+    #f1ca9d：裝飾色（淡橘）;
+    #595757：內文（深灰）;
+*/
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('fonts/JunyuYuanTi.ttf') format('turetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+/* 響應式 */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .carousel {
+        height: 200px;
+    }
+
+    .carousel img {
+        height: 200px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'MyCustomFont', sans-serif;
+    user-select: none;
+}
+
+html,
+body {
+    overflow-y: overlay;
+    overflow-x: hidden;
+
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(215, 215, 215);
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #595757;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #cf9f62;
+
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #f1ca9d;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(215, 215, 215);
+}
+
+#nav {
+    height: 5vh;
+    width: 100%;
+    line-height: 5vh;
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    position: fixed;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    z-index: 1000;
+
+    box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav_a {
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #595757;
+}
+
+.extraPageBtn {
+    color: #595757;
+}
+
+a:hover,
+.extraPageBtn:hover {
+    cursor: pointer;
+    color: #cf9f62;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease;
+}
+
+a:active,
+.extraPageBtn:active {
+    color: #f1ca9d;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+#introduceMySelf {
+    position: relative;
+    height: 100vh
+}
+
+/* 讓容器用flex垂直置中 */
+#introduceMySelf_img,
+#introduceMySelf_text {
+    position: absolute;
+    top: 52.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 45%;
+    transition: transform 1.5s ease;
+}
+
+#introduceMySelf_img {
+    z-index: 2;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+#introduceMySelf_text {
+    z-index: 1;
+    height: 75vh;
+    width: 37.5vw;
+
+    background-color: rgb(220, 220, 220);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 4.5vw;
+
+    text-align: left;
+    line-height: 5vh;
+    font-size: larger;
+    font-weight: 500;
+}
+
+#cursorGlow {
+    position: fixed;
+    pointer-events: none;
+    /* 讓滑鼠事件穿透 */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #cf9f62, transparent 75%);
+    filter: blur(20px);
+    transform: translate(-50%, -50%);
+    /* transition: background 0.3s ease; */
+    z-index: 9999;
+    mix-blend-mode: screen;
+    /* 融合效果，可以調整 */
+}
+
+#skills {
+    position: relative;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.divs,
+.illustration_divs {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease, transform 1s ease;
+
+    height: 65vh;
+    width: 30vw;
+
+    position: relative;
+    top: 17.5vh;
+
+    background-color: rgb(220, 220, 220);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
+    border: #595757 1px;
+
+    padding-top: 5%;
+    padding-left: 2%;
+    line-height: 3.5vh;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.divs.fade-in {
+    opacity: 1;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+hr {
+    width: 90%;
+}
+
+.page {
+    position: relative;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#DesignCarousel_1 {
+    height: 85vh;
+    width: 45vw;
+
+    position: relative;
+    top: 10vh;
+}
+
+
+#illustrationCarousel_1 {
+    height: 85vh;
+    width: 40vw;
+
+    position: relative;
+    top: 10vh;
+}
+
+
+#illustrationCarousel_2 {
+    height: 75vh;
+    width: 41vw;
+
+    position: relative;
+    top: 15vh;
+}
+
+.carousel:hover {
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.05);
+}
+
+.carousel-inner,
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+
+
+#DesignCarousel_2,
+#DesignCarousel_3 {
+    height: 75vh;
+    width: 55vw;
+
+    position: relative;
+    top: 15vh;
+}
+
+.contactLink {
+    color: #595757;
+    text-decoration: none;
+}
+
+.contactLink:hover {
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+    transition: all 1s ease;
+}
+
+.descripton,
+#contactDiv {
+    height: 65vh;
+    width: 30vw;
+
+    position: relative;
+    top: 20vh;
+
+    /* background-color: rgb(220, 220, 220); */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
+    /* border: #595757 1px; */
+
+    padding-top: 5%;
+    padding-left: 2%;
+    line-height: 3.5vh;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.inDetailed {
+    width: 95%;
+    text-align: right;
+    font-size: 3rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
+.extraPageBtnDescripton {
+    font-size: 2vh;
+    color: #595757;
+    opacity: 0.25;
+    font-weight: 500;
+}
+
+.descripton:hover,
+#contactDiv:hover {
+    background-color: rgb(220, 220, 220);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+#contactMe {
+    position: relative;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#contactDiv {
+    opacity: 0;
+    transform: translateY(15vh);
+    /* 初始位置在底下 */
+    transition: all 1s ease;
+}
+
+#contactDiv.active {
+    opacity: 1;
+    transform: translateY(0);
+    /* 向上滑入 */
+}
+
+#illustrationPage_3 {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    background: #fff;
+    /* 可選：背景色 */
+    padding: 1rem 0;
+    position: relative;
+}
+
+.marquee-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollMarquee 40s linear infinite;
+}
+
+.marquee-track img {
+    height: 150px;
+    margin: 0 1rem;
+    vertical-align: middle;
+}
+
+@keyframes scrollMarquee {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.webPage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.descriptonWeb {
+    height: 65vh;
+    width: 25vw;
+
+    position: relative;
+    /* top: 20vh; */
+
+    /* background-color: rgb(220, 220, 220); */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
+    /* border: #595757 1px; */
+
+    padding-top: 5%;
+    padding-left: 1%;
+    line-height: 3.5vh;
+    font-size: large;
+    font-weight: 500;
+}
+
+.webDisplay {
+    width: 70%;
+    max-width: 70%;
+    aspect-ratio: 1710 / 900;
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+    /* 避免背景空白 */
+    margin-bottom: 20px;
+}
+
+.webIframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 包 iframe 的容器 */
+#webDisplay1 {
+    width: 70%;
+    aspect-ratio: 1710 / 900;
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+    margin-bottom: 20px;
+}
+
+/* iframe 設定原始寬高、用 scale 縮放 */
+#webIframe1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1710px;
+    height: 900px;
+    transform-origin: top left;
+    border: none;
+    opacity: 0;
+    /* 預設先隱藏，縮放後顯示 */
+    transition: opacity 0.3s;
+}
