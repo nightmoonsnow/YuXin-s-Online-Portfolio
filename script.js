@@ -159,3 +159,26 @@ function scaleIframe() {
 
 window.addEventListener('resize', scaleIframe);
 window.addEventListener('load', scaleIframe);
+
+
+// 延遲載入個人任務清單管理（web.html）
+
+function lazyLoadIframe(id) {
+    const iframe = document.getElementById(id);
+    const src = iframe.dataset.src;
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                iframe.src = src;
+                observer.unobserve(iframe); // 載入一次就停止觀察
+            }
+        });
+    });
+
+    observer.observe(iframe);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    lazyLoadIframe('webIframe2'); // 僅針對你那個有 alert 的 iframe 做 lazy-load
+});

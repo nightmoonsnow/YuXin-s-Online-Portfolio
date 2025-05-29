@@ -401,6 +401,7 @@ hr {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    padding-top: 4%;
 }
 
 .descriptonWeb {
@@ -408,11 +409,7 @@ hr {
     width: 25vw;
 
     position: relative;
-    /* top: 20vh; */
-
-    /* background-color: rgb(220, 220, 220); */
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
-    /* border: #595757 1px; */
 
     padding-top: 5%;
     padding-left: 1%;
@@ -428,8 +425,6 @@ hr {
     position: relative;
     overflow: hidden;
     background-color: #000;
-    /* 避免背景空白 */
-    margin-bottom: 20px;
 }
 
 .webIframe {
