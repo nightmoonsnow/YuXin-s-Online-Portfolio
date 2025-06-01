@@ -309,6 +309,11 @@ hr {
     font-weight: 500;
 }
 
+#Portfolio {
+    position: relative;
+    top: 10vh;
+}
+
 .inDetailed {
     width: 95%;
     text-align: right;
@@ -331,6 +336,11 @@ hr {
 #contactDiv:hover {
     background-color: rgb(220, 220, 220);
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+#Portfolio {
+    width: 60%;
+    height: 60%;
 }
 
 #contactMe {
