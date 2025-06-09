@@ -21,13 +21,15 @@
 </head>
 
 <body>
-    <div id="nav">
-        <a href="./index.html#introduceMySelf" class="nav_a">首頁</a>
-        <a href="./design.html#DesignPage_1" class="nav_a">平面設計類</a>
-        <a href="./illustration.html#illustrationPage_1" class="nav_a">插畫類</a>
-        <a href="./web.html#webPage_1" class="nav_a">網頁作品類</a>
-    </div>
+    <div id="nav-container"></div>
 
+    <script>
+        fetch("nav.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("nav-container").innerHTML = data;
+            });
+    </script>
 
     <section class="page" style="display: flex; flex-direction: row; align-items: center; color: #595757;">
         <b><h1>還沒有做呢</h1></b>

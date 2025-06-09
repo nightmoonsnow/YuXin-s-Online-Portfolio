@@ -87,6 +87,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
 
     position: fixed;
     top: 0;
@@ -100,8 +101,92 @@ body {
     font-size: 20px;
     font-weight: 700;
     text-decoration: none;
-    color: #595757;
+    color: #595757 !important;
+    transition: color 0.3s ease;
 }
+
+.nav_a:hover {
+    color: #cf9f62 !important;
+    /* 你想要的 hover 顏色 */
+}
+
+/* 調整 nav-item 的位置與寬度，確保 dropdown-menu 不會脫離 */
+.nav-item.dropdown {
+    position: relative;
+}
+
+/* hover 整個 nav-item（包含分類連結和 dropdown-menu）都保持展開 */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* dropdown-menu 要夠寬、夠遠離上方連結，避免滑鼠太快移動時消失 */
+.dropdown-menu {
+    position: absolute !important;
+    top: 100%;
+    z-index: 2000;
+    display: none;
+    pointer-events: auto;
+
+    transition: opacity 0.2s ease;
+    opacity: 0;
+}
+
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+}
+
+/* 下拉項目 hover 效果 */
+.dropdown-item {
+    color: #595757;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #cf9f62;
+}
+
+/* 讓 nav-item 有小間距 */
+#nav .nav-item {
+    gap: 0.2rem;
+    position: relative;
+}
+
+/* hover 展開下拉選單 */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* 移除小箭頭（關鍵） */
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+/* dropdown-toggle 也變成可點連結樣式 */
+.dropdown-toggle {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    color: #595757;
+    font-size: 20px;
+    line-height: 5vh;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+    color: #cf9f62;
+}
+
+
+
+
+
 
 .extraPageBtn {
     color: #595757;
@@ -229,6 +314,30 @@ hr {
     justify-content: space-evenly;
 }
 
+.descripton {
+    height: 65vh;
+    width: 30vw;
+
+    position: relative;
+    top: 20vh;
+
+    padding-top: 5%;
+    padding-left: 2%;
+    line-height: 3.5vh;
+    font-size: larger;
+    font-weight: 500;
+
+    opacity: 0;
+    transform: translateX(-5vw);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.descripton.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
 #DesignCarousel_1 {
     height: 85vh;
     width: 45vw;
@@ -290,7 +399,6 @@ hr {
     transition: all 1s ease;
 }
 
-.descripton,
 #contactDiv {
     height: 65vh;
     width: 30vw;
@@ -299,7 +407,7 @@ hr {
     top: 20vh;
 
     /* background-color: rgb(220, 220, 220); */
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15); */
     /* border: #595757 1px; */
 
     padding-top: 5%;
@@ -314,25 +422,6 @@ hr {
     top: 10vh;
 }
 
-.inDetailed {
-    width: 95%;
-    text-align: right;
-    font-size: 3rem;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    align-items: center;
-}
-
-.extraPageBtnDescripton {
-    font-size: 2vh;
-    color: #595757;
-    opacity: 0.25;
-    font-weight: 500;
-}
-
-.descripton:hover,
 #contactDiv:hover {
     background-color: rgb(220, 220, 220);
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
@@ -372,34 +461,43 @@ hr {
 .marquee-container {
     overflow: hidden;
     white-space: nowrap;
-    width: 100%;
-    background: #fff;
-    /* 可選：背景色 */
-    padding: 1rem 0;
     position: relative;
+    background-color: #fff;
+    padding: 10px 0;
+}
+
+.marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
 }
 
 .marquee-track {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scrollMarquee 40s linear infinite;
+    display: flex;
+    animation: scroll 30s linear infinite;
+}
+
+.marquee-content {
+    display: flex;
 }
 
 .marquee-track img {
     height: 150px;
-    margin: 0 1rem;
-    vertical-align: middle;
+    margin-right: 20px;
+    width: 160px;
+    flex-shrink: 0;
 }
 
-@keyframes scrollMarquee {
-    from {
-        transform: translateX(0%);
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
     }
 
-    to {
+    100% {
         transform: translateX(-50%);
     }
 }
+
+
 
 .webPage {
     display: flex;
@@ -414,13 +512,41 @@ hr {
     width: 25vw;
 
     position: relative;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15); */
 
-    padding-top: 5%;
+    padding-top: 7.5%;
     padding-left: 1%;
     line-height: 3.5vh;
     font-size: large;
     font-weight: 500;
+
+    opacity: 0;
+    transform: translateX(-1vw);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.descriptonWeb.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.descripton a,
+.descriptonWeb a {
+    color: inherit;
+    /* 保持原本文字顏色 */
+    text-decoration: none;
+    /* 移除底線 */
+    transition: color 0.3s ease;
+}
+
+.descripton a:hover,
+.descriptonWeb a:hover {
+    color: #cf9f62;
+}
+
+.descripton a:active,
+.descriptonWeb a:active {
+    color: #f1ca9d;
 }
 
 .webDisplay {
@@ -461,4 +587,86 @@ hr {
     opacity: 0;
     /* 預設先隱藏，縮放後顯示 */
     transition: opacity 0.3s;
+}
+
+.webGame {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    height: 10%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    font-weight: 850;
+    color: #595757;
+    opacity: 0.5;
+}
+
+.Details {
+    height: 70%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.web_divs {
+    height: 85%;
+    width: 27.5%;
+
+    position: relative;
+
+    padding-top: 3%;
+    padding-left: 1%;
+    line-height: 3.5vh;
+    font-size: large;
+    font-weight: 500;
+}
+
+.web_divs_70 {
+    height: 100%;
+    width: 70%;
+    position: relative;
+
+    padding-top: 5%;
+    padding-left: 1%;
+    line-height: 3.5vh;
+    font-size: large;
+    font-weight: 500;
+}
+
+
+.web_divs_22 {
+    height: 100%;
+    width: 40%;
+    position: relative;
+
+    padding-left: 1%;
+    line-height: 3.5vh;
+    font-size: large;
+    font-weight: 500;
+}
+
+.Details {
+    opacity: 0;
+    transform: translateY(5vh);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.Details.show {
+    opacity: 1;
+    transform: translateY(0);
 }

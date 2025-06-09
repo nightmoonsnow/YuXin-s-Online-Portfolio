@@ -21,27 +21,44 @@
 </head>
 
 <body>
-    <div id="nav">
-        <a href="./index.html#introduceMySelf" class="nav_a">首頁</a>
-        <a href="./design.html#DesignPage_1" class="nav_a">平面設計類</a>
-        <a href="./illustration.html#illustrationPage_1" class="nav_a">插畫類</a>
-        <a href="./web.html#webPage_1" class="nav_a">網頁作品類</a>
-    </div>
+    <div id="nav-container"></div>
+
+    <script>
+        fetch("nav.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("nav-container").innerHTML = data;
+            });
+    </script>
 
     <section class="page marquee-container" id="illustrationPage_3">
         <h1><b>框架×甜點×動物×插畫</b></h1></br></br></br>
         <hr></br></br></br>
-        <div class="marquee-track" id="gifMarquee">
-            <img src="./images/LineArt_Circle.gif" alt="圖1">
-            <img src="./images/Grayscale_Circle.gif" alt="圖2">
-            <img src="./images/ColorDraft_Circle.gif" alt="圖3">
-            <img src="./images/LineArt_Square.gif" alt="圖4">
-            <img src="./images/Grayscale_Square.gif" alt="圖5">
-            <img src="./images/ColorDraft_Square.gif" alt="圖6">
-            <img src="./images/LineArt_Trriangle.gif" alt="圖7">
-            <img src="./images/Grayscale_Triangle.gif" alt="圖8">
-            <img src="./images/ColorDraft_Triangle.gif" alt="圖9">
-        </div>
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                <img src="./images/LineArt_Circle.gif">
+                <img src="./images/Grayscale_Circle.gif">
+                <img src="./images/ColorDraft_Circle.gif">
+                <img src="./images/LineArt_Square.gif">
+                <img src="./images/Grayscale_Square.gif">
+                <img src="./images/ColorDraft_Square.gif">
+                <img src="./images/LineArt_Trriangle.gif">
+                <img src="./images/Grayscale_Triangle.gif">
+                <img src="./images/ColorDraft_Triangle.gif"> 
+
+                <img src="./images/LineArt_Circle.gif">
+                <img src="./images/Grayscale_Circle.gif">
+                <img src="./images/ColorDraft_Circle.gif">
+                <img src="./images/LineArt_Square.gif">
+                <img src="./images/Grayscale_Square.gif">
+                <img src="./images/ColorDraft_Square.gif">
+                <img src="./images/LineArt_Trriangle.gif">
+                <img src="./images/Grayscale_Triangle.gif">
+                <img src="./images/ColorDraft_Triangle.gif">
+            </div>
+
+
+
     </section>
 
 

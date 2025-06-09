@@ -21,12 +21,15 @@
 </head>
 
 <body>
-    <div id="nav">
-        <a href="./index.html#introduceMySelf" class="nav_a">首頁</a>
-        <a href="./design.html#DesignPage_1" class="nav_a">平面設計類</a>
-        <a href="./illustration.html#illustrationPage_1" class="nav_a">插畫類</a>
-        <a href="./web.html#webPage_1" class="nav_a">網頁作品類</a>
-    </div>
+    <div id="nav-container"></div>
+
+    <script>
+        fetch("nav.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("nav-container").innerHTML = data;
+            });
+    </script>
 
 
     <section class="page" id="illustrationPage_1">
@@ -60,18 +63,13 @@
         </div>
 
         <div class="descripton">
-            <h1><b>個性化人像插畫</b></h1>
+            <a href="./illustrationPage_1.html">
+                <h1><b>個性化人像插畫</b></h1>
+            </a>
             <hr></br>
             使用illustrator繪製</br></br>
             將人的臉觀察、繪製色塊</br></br>
-            有點等高線地形模型的風格</br></br>
-
-            </br></br></br></br>
-            <h1 class="inDetailed">
-                <a href="./illustrationPage_1.html" class="extraPageBtn">
-                    <i class="bi bi-arrow-right-circle-fill" title="點我瞭解更多"></i>
-                </a>
-            </h1>
+            有點等高線地形模型的風格
         </div>
     </section>
 
@@ -112,20 +110,15 @@
         </div>
 
         <div class="descripton">
-            <h1><b>框架×甜點×動物×插畫</b></h1>
+            <a href="./illustrationPage_2.html">
+                <h1><b>框架×甜點×動物×插畫</b></h1>
+            </a>
             <hr></br>
             使用illustrator繪製</br></br>
             將動物" 白熊、麻雀、鴿子"</br></br>
             融合甜點" 舒芙蕾、泡芙、甜甜圈"。</br></br>
             以冬季草莓系列甜點當作共通點，</br></br>
             設計於" 圓形、正方形與三角形" 的框架內。
-
-            </br></br>
-            <h1 class="inDetailed">
-                <a href="./illustrationPage_2.html" class="extraPageBtn">
-                    <i class="bi bi-arrow-right-circle-fill" title="點我瞭解更多"></i>
-                </a>
-            </h1>
         </div>
     </section>
 

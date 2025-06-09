@@ -1,5 +1,14 @@
 // 資傳3A_1111841廖羽歆_作品集設計與展現_線上作品集製作
 
+
+// 關閉 Bootstrap 點擊展開的 JS 功能（避免干擾 hover）
+document.querySelectorAll('.dropdown-toggle').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+        e.preventDefault(); // 阻止點擊展開
+    });
+});
+
+
 // 100vh為單位捲動頁面
 let isScrolling = false;
 
@@ -118,25 +127,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// marquee.（illustrationPage_2.html）
-const marquee = document.getElementById('gifMarquee');
-let scrollAmount = 0;
+// const marquee = document.getElementById('gifMarquee');
 
-if (marquee) {
-    // 複製一次內容實現無縫滾動
-    marquee.innerHTML += marquee.innerHTML;
+// if (marquee) {
+//   const originalWidth = marquee.offsetWidth;
+//   marquee.innerHTML += marquee.innerHTML; // 複製一次內容
+//   let scrollAmount = 0;
 
-    function animateMarquee() {
-        scrollAmount += 1;
-        if (scrollAmount >= marquee.scrollWidth / 2) {
-            scrollAmount = 0;
-        }
-        marquee.style.transform = `translateX(-${scrollAmount}px)`;
-        requestAnimationFrame(animateMarquee);
-    }
+//   function animateMarquee() {
+//     scrollAmount += 1;
 
-    animateMarquee();
-}
+//     // 🔥 改這裡：只要滑完「原始寬度」，就重置
+//     if (scrollAmount >= originalWidth) {
+//       scrollAmount = 0;
+//     }
+
+//     marquee.style.transform = `translateX(-${scrollAmount}px)`;
+//     requestAnimationFrame(animateMarquee);
+//   }
+
+//   animateMarquee();
+// }
 
 
 // 完整顯示遊戲畫面（不裁切）且等比例縮放（web.html）
@@ -181,4 +192,46 @@ function lazyLoadIframe(id) {
 
 window.addEventListener('DOMContentLoaded', () => {
     lazyLoadIframe('webIframe2'); // 僅針對你那個有 alert 的 iframe 做 lazy-load
+});
+
+
+const observer4 = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            const descripton = entry.target.querySelector('.descripton');
+            const descriptonWeb = entry.target.querySelector('.descriptonWeb');
+            if (descripton) descripton.classList.add('show');
+            if (descriptonWeb) descriptonWeb.classList.add('show');
+        } else {
+            const descripton = entry.target.querySelector('.descripton');
+            const descriptonWeb = entry.target.querySelector('.descriptonWeb');
+            if (descripton) descripton.classList.remove('show');
+            if (descriptonWeb) descriptonWeb.classList.remove('show');
+        }
+    });
+}, {
+    threshold: 0.3
+});
+
+document.querySelectorAll('.page').forEach((page) => {
+    observer4.observe(page);
+});
+
+
+const observer5 = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            const Details = entry.target.querySelector('.Details');
+            if (Details) Details.classList.add('show');
+        } else {
+            const Details = entry.target.querySelector('.Details');
+            if (Details) Details.classList.remove('show');
+        }
+    });
+}, {
+    threshold: 0.3
+});
+
+document.querySelectorAll('.page').forEach((page) => {
+    observer5.observe(page);
 });

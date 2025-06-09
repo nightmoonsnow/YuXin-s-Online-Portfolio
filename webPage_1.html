@@ -21,20 +21,120 @@
 </head>
 
 <body>
-    <div id="nav">
-        <a href="./index.html#introduceMySelf" class="nav_a">首頁</a>
-        <a href="./design.html#DesignPage_1" class="nav_a">平面設計類</a>
-        <a href="./illustration.html#illustrationPage_1" class="nav_a">插畫類</a>
-        <a href="./web.html#webPage_1" class="nav_a">網頁作品類</a>
-    </div>
+    <div id="nav-container"></div>
 
+    <script>
+        fetch("nav.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("nav-container").innerHTML = data;
+            });
+    </script>
 
-    <section class="page" style="display: flex; flex-direction: row; align-items: center; color: #595757;">
-        <b>
-            <h1>還沒有做呢</h1>
-        </b>
+    <section class="page webGame" id="web1_1">
+        <h1 class="title">遊戲簡介</h1>
+        <div class="Details">
+            <div class="web_divs">
+                <h2><b>主題</b></h2>
+                <hr></br>
+                背景以兩個時空為主(地球沼澤、貓星球)。</br></br>
+            </div>
+            <div class="web_divs">
+                <h2><b>動機</b></h2>
+                <hr></br>
+                我們的遊戲靈感源自於一款多人合作的益智遊戲</br></br>
+                《PICO PARK》，就像這款遊戲一樣，我們的目標</br></br>
+                是創造同樣有趣的遊戲機制和簡潔的視覺風格，</br></br>
+                同時注入故事元素。</br></br>
+            </div>
+            <div class="web_divs">
+                <h2><b>說明</b></h2>
+                <hr></br>
+                這是一款單人遊戲，採用2D橫向卷軸視角。</br></br>
+                玩家將扮演來自貓星球的貓Kitty。</br></br>
+                Kitty在外太空旅行時，不幸墜入地球的某處沼澤，</br></br>
+                火箭零件散落各地，現在需要收集破碎的零件，</br></br>
+                修復火箭以返回貓星球。
+            </div>
+        </div>
     </section>
 
+    <section class="page webGame" id="web1_2">
+        <h1 class="title">遊戲內容</h1>
+        <div class="Details">
+            <div class="web_divs">
+                <h2><b>故事背景</b></h2>
+                <hr></br>
+                主角是一隻太空玻璃貓，名叫Kitty。</br></br>
+                Kitty在旅行中意外受流星撞擊，來到地球的某個沼澤地。</br></br>
+                玩家的任務是幫助Kitty收集修復火箭所需的零件，</br></br>
+                然後返回貓星球。</br></br>
+            </div>
+            <div class="web_divs">
+                <h2><b>目標與任務</b></h2>
+                <hr></br>
+                <b>第一關｜</b>不能碰到荊棘或掉進沼澤。</br></br>
+                收集完所有的零件，回到破碎的火箭上。</br></br></br>
+
+                <b>第二關｜</b>不能碰到流星。</br></br>
+                直到Kitty回到貓星球上，遊戲整個才算闖關成功。</br></br>
+            </div>
+            <div class="web_divs">
+                <h2><b>玩法</b></h2>
+                <hr></br>
+                <b>第一關｜</b>
+                使用鍵盤　↑　←　→　輸入</br></br></br>
+
+                <b>第二關｜</b>
+                使用鍵盤　↑　↓　→　輸入</br></br>
+            </div>
+        </div>
+    </section>
+
+    <section class="page webGame" id="web1_3">
+        <h1 class="title">遊戲流程設計</h1>
+        <div class="Details">
+            <div class="web_divs_70">
+                <img src="" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="page webGame" id="web1_4">
+        <h1 class="title">遊戲架構與關卡設計</h1>
+        <div class="Details">
+            <div class="web_divs_22">
+                <b>主選單｜</b>
+                包含「開始遊戲」按紐，點擊後開啟開場劇情文本。</br></br>
+                <b>開場劇情文本｜</b>
+                遊戲劇情說明</br></br>
+                <b>第一關｜</b></br></br>
+                &emsp;1. 場景初始畫面：地球沼澤，左側有一艘破碎的火箭</br></br>
+                &emsp;2. 人物初始位置：站在破碎的火箭上</br></br>
+                &emsp;3. 任務：蒐集所有火箭零件，避免觸碰荊棘或掉進沼澤</br></br>
+                &emsp;4. 成功條件：收集完所有零件，回到破碎的火箭上</br></br>
+                &emsp;5. 失敗條件：碰到荊棘或掉進沼澤，重新開始第一關</br></br>
+                &emsp;6. 其他設計：途中若踩到蜂蜜，移動速度變慢</br></br>
+                <b>第一關挑戰成功文本｜</b>
+                文本：「零件收集組裝完成,準備返家」</br></br>
+            </div>
+            <div class="web_divs_22">
+                <b>第二關開始文本｜</b>
+                第二關遊戲說明</br></br>
+
+                <b>第二關｜</b></br></br>
+                &emsp;1. 場景初始畫面：外太空(地球前往貓星球的路徑畫面)</br></br>
+                &emsp;2. 人物初始位置：畫面左側</br></br>
+                &emsp;3. 任務：避開流星，將Kitty安全帶回貓星球</br></br>
+                &emsp;4. 成功條件：玩家成功躲過流星來到貓星球前</br></br>
+                &emsp;5. 失敗條件：碰到流星，重新開始第二關</br></br>
+                &emsp;6. 其他設計：途中若被隕石撞擊，火箭會被推開</br></br>
+                <b>結束挑戰成功文本｜</b>
+                文本：「恭喜kitty抵達貓星!」</br></br>
+                （包含「再玩一次」按紐，點擊後將重新開始遊戲）</br></br>
+            </div>
+        </div>
+    </section>
 
     <div id="cursorGlow"></div>
     <script src="./script.js"></script>

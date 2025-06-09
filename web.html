@@ -21,13 +21,15 @@
 </head>
 
 <body>
-    <div id="nav">
-        <a href="./index.html#introduceMySelf" class="nav_a">首頁</a>
-        <a href="./design.html#DesignPage_1" class="nav_a">平面設計類</a>
-        <a href="./illustration.html#illustrationPage_1" class="nav_a">插畫類</a>
-        <a href="./web.html#webPage_1" class="nav_a">網頁作品類</a>
-    </div>
+    <div id="nav-container"></div>
 
+    <script>
+        fetch("nav.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("nav-container").innerHTML = data;
+            });
+    </script>
 
     <section class="page webPage" id="webPage_1">
         <div id="webDisplay1">
@@ -36,41 +38,30 @@
             </iframe>
         </div>
         <div class="descriptonWeb">
-            <h1><b>星際貓返家記</b></h1>
+            <a href="./webPage_1.html">
+                <h1><b>星際貓返家記</b></h1>
+            </a>
             <hr></br>
             以「太空玻璃貓迷失地球」為主題設計 2D 橫</br></br>
             向遊戲，擔任遊戲關卡規劃與角色美術設計、</br></br>
-            編寫網頁前後端邏輯、錄製剪輯專案展示影片。</br></br>
-
-            </br></br></br></br>
-            <h1 class="inDetailed">
-                <a href="./webPage_1.html" class="extraPageBtn">
-                    <i class="bi bi-arrow-right-circle-fill" title="點我瞭解更多"></i>
-                </a>
-            </h1>
+            編寫網頁前後端邏輯、錄製剪輯專案展示影片。
         </div>
     </section>
 
 
     <section class="page webPage" id="webPage_2">
         <div class="webDisplay">
-            <iframe data-src="https://nightmoonsnow.github.io/Web-Design_Note-App/" class="webIframe"
-                id="webIframe2">
+            <iframe data-src="https://nightmoonsnow.github.io/Web-Design_Note-App/" class="webIframe" id="webIframe2">
             </iframe>
         </div>
         <div class="descriptonWeb">
-            <h1><b>個人任務清單管理</b></h1>
+            <a href="./webPage_2.html">
+                <h1><b>個人任務清單管理</b></h1>
+            </a>
             <hr></br>
             設計一款能記錄、修改與排序待辦清單的個人</br></br>
             管理系統。使用者介面簡潔，支援帳號管理。</br></br>
             主要負責網頁架構、流程設計與導覽視覺。
-
-            </br></br></br></br></br></br>
-            <h1 class="inDetailed">
-                <a href="./webPage_2.html" class="extraPageBtn">
-                    <i class="bi bi-arrow-right-circle-fill" title="點我瞭解更多"></i>
-                </a>
-            </h1>
         </div>
     </section>
 
@@ -80,19 +71,14 @@
             </iframe>
         </div>
         <div class="descriptonWeb">
-            <h1><b>龍岡好棒棒</b></h1>
+            <a href="./webPage_3.html">
+                <h1><b>龍岡好棒棒</b></h1>
+            </a>
             <hr></br>
             「羅馬不是一天造成的」這句話也適用於台灣，</br></br>
             能有如今多元文化共存的社會，</br></br>
             不得不歸功於過往戰爭、殖民、移民等歷史。</br></br>
             我們製作這網頁，一同看看歷史的痕跡──龍岡。
-
-            </br></br></br></br>
-            <h1 class="inDetailed">
-                <a href="./webPage_3.html" class="extraPageBtn">
-                    <i class="bi bi-arrow-right-circle-fill" title="點我瞭解更多"></i>
-                </a>
-            </h1>
         </div>
     </section>
 

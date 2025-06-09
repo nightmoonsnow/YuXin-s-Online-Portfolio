@@ -21,12 +21,15 @@
 </head>
 
 <body>
-    <div id="nav">
-        <a href="./index.html#introduceMySelf" class="nav_a">首頁</a>
-        <a href="./design.html#DesignPage_1" class="nav_a">平面設計類</a>
-        <a href="./illustration.html#illustrationPage_1" class="nav_a">插畫類</a>
-        <a href="./web.html#webPage_1" class="nav_a">網頁作品類</a>
-    </div>
+    <div id="nav-container"></div>
+
+    <script>
+        fetch("nav.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("nav-container").innerHTML = data;
+            });
+    </script>
 
     <!-- 金犢獎 -->
     <section class="page" id="DesignPage_1">
@@ -58,7 +61,9 @@
         </div>
 
         <div class="descripton">
-            <h1><b>金犢獎平面廣告設計 入圍</b></h1>
+            <a href="./designPage_1.html">
+                <h1><b>金犢獎平面廣告設計 入圍</b></h1>
+            </a>
             <hr></br>
             <!-- <i>2024台灣賽區</i> -->
             參賽主題為益生菌形象宣傳，</br></br>
@@ -66,14 +71,6 @@
             畫面分層由模糊到清晰，</br></br>
             結合鷹架、灑落感與胃部圖像，引導觀者視線。</br></br>
             冷暖對比色應用讓形象專業又吸睛。
-
-            </br></br>
-
-            <h1 class="inDetailed">
-                <a href="./designPage_1.html" class="extraPageBtn">
-                    <i class="bi bi-arrow-right-circle-fill" title="點我瞭解更多"></i>
-                </a>
-            </h1>
         </div>
     </section>
 
@@ -122,19 +119,15 @@
         </div>
 
         <div class="descripton">
-            <h1><b>車站指標系統</b></h1>
+
+            <a href="./designPage_2.html">
+                <h1><b>車站指標系統</b></h1>
+            </a>
             <hr></br>
             走訪台北車站現場觀察指標系統，</br></br>
             設計10款統一風格的圖示。</br></br>
             針對導引清晰度與閱讀性進行優化，</br></br>
             兼顧美感與實用性。
-
-            </br></br></br></br>
-            <h1 class="inDetailed">
-                <a href="./designPage_2.html" class="extraPageBtn">
-                    <i class="bi bi-arrow-right-circle-fill" title="點我瞭解更多"></i>
-                </a>
-            </h1>
         </div>
     </section>
 
@@ -181,25 +174,20 @@
         </div>
 
         <div class="descripton">
-            <h1><b>Kiboo 鍵盤品牌形象設計</b></h1>
+            <a href="./designPage_3.html">
+                <h1><b>Kiboo 鍵盤品牌形象設計</b></h1>
+            </a>
             <hr></br>
             設計Vtuber「淇布Kiboo 」角色形象，</br></br>
             打造鍵盤品牌的視覺識別。</br></br>
             負責 LOGO、名片、包裝結構與刀模設計，</br></br>
             並參與實體印刷與組裝流程。
-
-            </br></br></br></br>
-            <h1 class="inDetailed">
-                <a href="./designPage_3.html" class="extraPageBtn">
-                    <i class="bi bi-arrow-right-circle-fill" title="點我瞭解更多"></i>
-                </a>
-            </h1>
         </div>
     </section>
 
     <!-- 線上翻頁紙本作品集 -->
     <section class="page" id="DesignPage_4">
-        <iframe style="width:1000px;height:750px" src="https://online.anyflip.com/jpfhk/qcif/" seamless="seamless"
+        <iframe style="width:940px;height:710px" src="https://online.anyflip.com/jpfhk/qcif/" seamless="seamless"
             scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" id="Portfolio"></iframe>
 
         <div class="descripton">
