@@ -220,11 +220,12 @@ document.querySelectorAll('.page').forEach((page) => {
 
 const observer5 = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+        const Details = entry.target.querySelector('.Details');
+
+        document.body.style.overflow = "hidden";
         if (entry.isIntersecting) {
-            const Details = entry.target.querySelector('.Details');
             if (Details) Details.classList.add('show');
         } else {
-            const Details = entry.target.querySelector('.Details');
             if (Details) Details.classList.remove('show');
         }
     });
