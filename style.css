@@ -184,31 +184,14 @@ body {
 }
 
 
-
-
-
-
-.extraPageBtn {
-    color: #595757;
-}
-
-a:hover,
-.extraPageBtn:hover {
-    cursor: pointer;
-    color: #cf9f62;
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-    transition: all 0.5s ease;
-}
-
-a:active,
-.extraPageBtn:active {
+a:active {
     color: #f1ca9d;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
 }
 
 #introduceMySelf {
     position: relative;
-    height: 100vh
+    height: 100vh;
 }
 
 /* 讓容器用flex垂直置中 */
@@ -284,9 +267,9 @@ a:active,
     position: relative;
     top: 17.5vh;
 
-    background-color: rgb(220, 220, 220);
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
-    border: #595757 1px;
+    /* background-color: rgb(220, 220, 220); */
+    /* box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15); */
+    /* border: #595757 1px; */
 
     padding-top: 5%;
     padding-left: 2%;
@@ -422,9 +405,15 @@ hr {
     top: 10vh;
 }
 
+
+.divs:hover,
+.descripton:hover,
+.descriptonWeb:hover,
 #contactDiv:hover {
     background-color: rgb(220, 220, 220);
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
+
+    transition: all 1s ease;
 }
 
 #contactMe {
