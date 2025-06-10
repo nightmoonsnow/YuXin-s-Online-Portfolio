@@ -280,20 +280,25 @@ const modala = document.querySelector('.modal');
 const modalImgb = document.querySelector('.modalImg');
 
 // 綁定所有圖片點擊事件（可選範圍內圖片）
-document.querySelectorAll('img').forEach(img => {
-    img.addEventListener('click', () => {
-        modala.classList.add('show');
-        modalImgb.src = img.src;
+if (modala) {
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('click', () => {
+            modala.classList.add('show');
+            modalImgb.src = img.src;
+        });
     });
-});
+}
 
 // 點 modal 背景關閉（只要不是點到圖片）
-modala.addEventListener('click', e => {
-    if (e.target === modala) {
-        modala.classList.remove('show');
-        modalImgb.src = "";
-    }
-});
+
+if (modala) {
+    modala.addEventListener('click', e => {
+        if (e.target === modala) {
+            modala.classList.remove('show');
+            modalImgb.src = "";
+        }
+    });
+}
 
 
 // 監聽所有輪播圖片點擊事件

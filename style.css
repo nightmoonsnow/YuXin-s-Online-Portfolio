@@ -401,6 +401,60 @@ hr {
     font-weight: 500;
 }
 
+#design2_2,
+#design3_2,
+#design3_3,
+#web1_7,
+#web2_4,
+#web3_4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.webDiv_right {
+    height: 75%;
+    width: 40%;
+    position: relative;
+    font-size: large;
+    font-weight: 500;
+    overflow: hidden;
+    padding-top: 2vh;
+}
+
+.designDiv_left,
+.webDiv_left {
+    height: 20%;
+    width: 20%;
+    position: relative;
+    font-size: large;
+    font-weight: 500;
+}
+
+#design3_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.designDiv_right {
+    height: 60%;
+    width: 60%;
+    position: relative;
+    font-size: large;
+    font-weight: 500;
+    overflow: hidden;
+}
+
+.LogoImg {
+    width: auto;
+    height: 50vh;
+    padding-bottom: 8vh;
+}
+
+
 #Portfolio {
     position: relative;
     top: 10vh;
@@ -583,7 +637,26 @@ hr {
     border-radius: 10px;
 }
 
+.illustrationPage {
+    height: 100vh;
+    width: 100vw;
 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.illustrationPage img {
+    height: auto;
+    width: 30%;
+}
+
+.illustrationPage img:hover {
+    background-color: whitesmoke;
+    border: 10px solid #f0f0f0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 
 
@@ -679,7 +752,8 @@ hr {
 
 .webGame,
 .webNoteApp,
-.web {
+.web,
+.design {
     position: relative;
     height: 100vh;
     width: 100vw;
@@ -689,6 +763,9 @@ hr {
     justify-content: center;
 }
 
+#design1_0 img,
+#design2_0 img,
+#design3_0 img,
 #web1_0 img,
 #web2_0 img,
 #web3_0 img {
@@ -703,6 +780,9 @@ hr {
 }
 
 /* 載入後加上這個 class 就會淡入 */
+#design1_0 img.fade-in,
+#design2_0 img.fade-in,
+#design3_0 img.fade-in,
 #web1_0 img.fade-in,
 #web2_0 img.fade-in,
 #web3_0 img.fade-in {

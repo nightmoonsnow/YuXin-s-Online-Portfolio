@@ -31,13 +31,106 @@
             });
     </script>
 
-    <section class="page" style="display: flex; flex-direction: row; align-items: center; color: #595757;">
-        <b><h1>還沒有做呢</h1></b>
+    <section class="page design fade-bottom" id="design3_0">
+        <img src="./images/Trademark and packaging design_Shopping_Bag_Mockup2.jpg" alt="">
     </section>
-    
+
+    <section class="page design" id="design3_1">
+        <h1 class="titleWeb"><b>Kiboo（淇布）鍵盤IP</b></h1>
+        <div class="Details">
+            <div class="web_divs">
+                <h2><b>產品特色</b></h2>
+                <hr />
+                <p>Kiboo( 淇布) 是鍵盤化身的Vtuber，是專門介紹機械鍵盤。
+                    以可愛的少女IP 形象為設計靈感，吸引年輕客群。</p>
+            </div>
+            <div class="web_divs">
+                <h2><b>品牌理念</b></h2>
+                <hr />
+                <p>希望吸引對機械鍵盤感興趣或剛接觸這一領域的客戶。
+                    Kiboo 的按鍵聲音清脆柔軟，因此採用可愛特徵融入角色設計。</p>
+            </div>
+            <div class="web_divs">
+                <h2><b>LOGO 設計要素</b></h2>
+                <hr />
+                <p>將Kiboo 這個名字結合" 鍵盤"、" 電源鍵" 及" 方向鍵"。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page design" id="design3_3">
+        <div class="designDiv_left">
+            <h2><b>Kiboo Vtuber形象設計</b></h2>
+            <hr />
+            <p>眼睛為開機鍵 可愛的鍵盤Vtuber少女，髮夾與服飾也都結合方向鍵的要素
+        </div>
+        <div class="designDiv_right">
+            <iframe src="https://drive.google.com/file/d/1qEDRjFS5BYNmn6iMBT4xMBoU1_w7NauZ/preview" allow="autoplay"
+                frameborder="0" style="width:60vw; height:60vh; border: none;">
+            </iframe>
+        </div>
+    </section>
+
+    <section class="page design" id="design3_2">
+        <h1 class="titleWeb"><b>LOGO設計</b></h1>
+        <div class="Details">
+            <img src="./images/LOGO (1).png" alt="" class="LogoImg">
+            <img src="./images/LOGO (2).png" alt="" class="LogoImg">
+        </div>
+    </section>
+
+    <section class="page design" id="design3_4">
+        <h1 class="titleWeb"><b>色票與比例</b></h1>
+        <div class="Details">
+            <img src="./images/color (2).png" alt="" class="LogoImg">
+            <img src="./images/color (1).png" alt="" class="LogoImg">
+        </div>
+    </section>
+
+    <!-- 放大圖片用 modal，只放一個 -->
+    <div class="modal">
+        <img class="modalImg" src="" alt="放大圖片" />
+    </div>
+
 
     <div id="cursorGlow"></div>
     <script src="./script.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            const img = document.querySelector('#design3_0 img');
+            const target = document.getElementById('design3_1');
+            if (!img || !target) return;
+
+            // 淡入圖片
+            img.classList.add('fade-in');
+
+            // 自動捲動動畫（5秒）
+            const duration = 5000;
+            const startY = window.scrollY;
+            const targetY = target.getBoundingClientRect().top + window.scrollY;
+            const distance = targetY - startY;
+            let startTime = null;
+
+            function easeInOutQuad(t) {
+                return t < 0.5
+                    ? 2 * t * t
+                    : -1 + (4 - 2 * t) * t;
+            }
+
+            function scrollAnimate(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeInOutQuad(progress);
+                window.scrollTo(0, startY + distance * eased);
+                if (progress < 1) {
+                    requestAnimationFrame(scrollAnimate);
+                }
+            }
+
+            requestAnimationFrame(scrollAnimate);
+        });
+    </script>
 </body>
 
 </html>
