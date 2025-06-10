@@ -31,15 +31,137 @@
             });
     </script>
 
-    <section class="page" style="display: flex; flex-direction: row; align-items: center; color: #595757;">
-        <b>
-            <h1>還沒有做呢</h1>
-        </b>
+    <section class="page webNoteApp fade-bottom" id="web2_0">
+        <img src="./images/webNoteAppShow.png" alt="">
     </section>
 
+    <section class="page webNoteApp" id="web2_1">
+        <h1 class="titleWeb"><b>專題介紹
+            </b></h1>
+        <div class="Details">
+            <div class="web_divs">
+                <h2><b>專題名稱</b></h2>
+                <hr />
+                <p>清單式個人任務管理 NoteApp</p>
+            </div>
+            <div class="web_divs">
+                <h2><b>提供之服務</b></h2>
+                <hr />
+                <p>1. 使用者註冊和登錄：用戶可以註冊帳號，並使用此賬號登錄到網站中。<br>
+                    2. 個人任務管理：用戶可以在網站上創建、編輯和刪除個人的待辦事項。</p>
+            </div>
+            <div class="web_divs">
+                <h2><b>分工</b></h2>
+                <hr />
+                <p>廖羽歆｜企劃、網頁前端、新增資料按時排序功能<br>
+                    邱梓芫｜網頁架構、互動、後端資料儲存、程式除錯<br>
+                    小崎晃志郎｜網頁架構、互動、後端資料儲存、程式除錯</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page webNoteApp" id="web2_2">
+        <h1 class="titleWeb titleWebImg"><b>提案草圖展示</b></h1>
+        <div class="webMarquee-container">
+            <div class="webMarquee-content">
+                <img src="./images/webNoteAppDraft (14).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (13).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (12).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (11).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (10).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (10).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (9).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (8).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (7).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (6).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (5).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (4).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (3).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (2).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (1).png" class="blur-edges" />
+
+                <!-- 複製一次圖片陣列，讓跑馬燈可以無縫循環 -->
+                <img src="./images/webNoteAppDraft (14).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (13).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (12).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (11).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (10).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (10).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (9).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (8).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (7).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (6).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (5).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (4).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (3).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (2).png" class="blur-edges" />
+                <img src="./images/webNoteAppDraft (1).png" class="blur-edges" />
+            </div>
+        </div>
+    </section>
+
+    <section class="page webNoteApp" id="web2_3">
+        <h1 class="titleWeb titleWebImg"><b>專案展示影片</b></h1>
+        <section class="video-section">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ztI6LLOzQsc"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </section>
+    </section>
+
+    <section class="page webGame" id="web2_4">
+        <h1 class="titleWeb titleWebImg"><b>專案報告書</b></h1>
+        <iframe src="https://drive.google.com/file/d/10a1P8jOhPDI7lIRgjUGERe0Rh8OHYFrT/preview" allow="autoplay"
+            frameborder="0" style="width: 100vw; height: 100vh; border: none;">
+        </iframe>
+    </section>
+
+    <!-- 浮出視窗（modal） -->
+    <div class="modal">
+        <img class="modalImg" src="" alt="放大圖" />
+    </div>
 
     <div id="cursorGlow"></div>
     <script src="./script.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            const img = document.querySelector('#web2_0 img');
+            const target = document.getElementById('web2_1');
+            if (!img || !target) return;
+
+            // 淡入圖片
+            img.classList.add('fade-in');
+
+            // 自動捲動動畫（5秒）
+            const duration = 5000;
+            const startY = window.scrollY;
+            const targetY = target.getBoundingClientRect().top + window.scrollY;
+            const distance = targetY - startY;
+            let startTime = null;
+
+            function easeInOutQuad(t) {
+                return t < 0.5
+                    ? 2 * t * t
+                    : -1 + (4 - 2 * t) * t;
+            }
+
+            function scrollAnimate(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeInOutQuad(progress);
+                window.scrollTo(0, startY + distance * eased);
+                if (progress < 1) {
+                    requestAnimationFrame(scrollAnimate);
+                }
+            }
+
+            requestAnimationFrame(scrollAnimate);
+        });
+    </script>
+
 </body>
 
 </html>

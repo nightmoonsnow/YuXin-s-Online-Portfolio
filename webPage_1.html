@@ -29,6 +29,10 @@
             });
     </script>
 
+    <section class="page webGame fade-bottom" id="web1_0">
+        <img src="./images/webGameShow.png" alt="">
+    </section>
+
     <section class="page webGame" id="web1_1">
         <h1 class="titleWeb"><b>遊戲簡介</b></h1>
         <div class="Details">
@@ -76,15 +80,6 @@
     </section>
 
     <section class="page webGame" id="web1_3">
-        <h1 class="titleWeb"><b>遊戲流程設計</b></h1>
-        <div class="Details">
-            <div class="web_divs_70">
-                <img src="" alt="遊戲流程圖示意" />
-            </div>
-        </div>
-    </section>
-
-    <section class="page webGame" id="web1_4">
         <h1 class="titleWeb"><b>遊戲架構與關卡設計</b></h1>
         <div class="Details d-flex flex-wrap gap-3">
             <div class="web_divs_22">
@@ -120,8 +115,125 @@
         </div>
     </section>
 
+    <section class="page webGame" id="web1_4">
+        <h1 class="titleWeb titleWebImg"><b>遊戲流程設計</b></h1>
+        <div class="Details">
+            <div class="web_divs_70">
+                <img src="./images/webGameProcess.png" alt="遊戲流程圖示意" id="gameProcessImg" />
+            </div>
+        </div>
+    </section>
+
+    <section class="page webGame" id="web1_5">
+        <div id="webGame22left">
+            <h1 class="titleWeb titleWebImg"><b>美術Showcase展示</b></h1>
+            <div id="webCarousel_1" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#webCarousel_1" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#webCarousel_1" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#webCarousel_1" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#webCarousel_1" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./images/G3_Showcase (1).png" class="d-block w-100" alt="第一張圖片">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images/G3_Showcase (2).png" class="d-block w-100" alt="第二張圖片">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images/G3_Showcase (3).png" class="d-block w-100" alt="第三張圖片">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./images/G3_Showcase (4).png" class="d-block w-100" alt="第四張圖片">
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#webCarousel_1"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">上一張</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#webCarousel_1"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">下一張</span>
+                </button>
+            </div>
+        </div>
+        <div id="webGame22right">
+            <h1 class="titleWeb titleWebImg"><b>美術物件元素</b></h1>
+            <img src="./images/webGameArt.png" alt="遊戲流程圖示意" id="gameArtImg" />
+        </div>
+    </section>
+
+    <section class="page webGame" id="web1_6">
+        <h1 class="titleWeb titleWebImg"><b>專案展示影片</b></h1>
+        <section class="video-section">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ztI6LLOzQsc?si=dG8k68mjTMmdgZ5u"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </section>
+    </section>
+
+    <section class="page webGame" id="web1_7">
+        <h1 class="titleWeb titleWebImg"><b>專案報告書</b></h1>
+        <iframe src="https://drive.google.com/file/d/1pvoPpn6BGE3BfLHPiCKaaeDD2YamW7bO/preview" allow="autoplay"
+            frameborder="0" style="width: 100vw; height: 100vh; border: none;">
+        </iframe>
+    </section>
+
+    <!-- 浮出視窗（modal） -->
+    <div class="modal">
+        <img class="modalImg" src="" alt="放大圖" />
+    </div>
+
     <div id="cursorGlow"></div>
     <script src="./script.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            const img = document.querySelector('#web1_0 img');
+            const target = document.getElementById('web1_1');
+            if (!img || !target) return;
+
+            // 淡入圖片
+            img.classList.add('fade-in');
+
+            // 自動捲動動畫（5秒）
+            const duration = 5000;
+            const startY = window.scrollY;
+            const targetY = target.getBoundingClientRect().top + window.scrollY;
+            const distance = targetY - startY;
+            let startTime = null;
+
+            function easeInOutQuad(t) {
+                return t < 0.5
+                    ? 2 * t * t
+                    : -1 + (4 - 2 * t) * t;
+            }
+
+            function scrollAnimate(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeInOutQuad(progress);
+                window.scrollTo(0, startY + distance * eased);
+                if (progress < 1) {
+                    requestAnimationFrame(scrollAnimate);
+                }
+            }
+
+            requestAnimationFrame(scrollAnimate);
+        });
+    </script>
+
 </body>
 
 </html>

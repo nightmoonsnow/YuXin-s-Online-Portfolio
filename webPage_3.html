@@ -31,15 +31,135 @@
             });
     </script>
 
-    <section class="page" style="display: flex; flex-direction: row; align-items: center; color: #595757;">
-        <b>
-            <h1>還沒有做呢</h1>
-        </b>
+    <section class="page web fade-bottom" id="web3_0">
+        <img src="./images/webShow.jpg" alt="">
     </section>
 
+    <section class="page web" id="web3_1">
+        <h1 class="titleWeb"><b>專題介紹
+            </b></h1>
+        <div class="Details">
+            <div class="web_divs">
+                <h2><b>專題名稱</b></h2>
+                <hr />
+                <p>龍岡好棒棒<br></p>
+            </div>
+            <div class="web_divs">
+                <h2><b>主題</b></h2>
+                <hr />
+                <p>在地人文、歷史、觀光。</p>
+            </div>
+            <div class="web_divs">
+                <h2><b>目的
+                    </b></h2>
+                <hr />
+                <p>讓大家更了解附近土地上的歷史，並進一步促進觀光。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page web" id="web3_2">
+        <h1 class="titleWeb titleWebImg"><b>提案草圖展示</b></h1>
+        <div class="webMarquee-container">
+            <div class="webMarquee-content">
+                <img src="./images/webDraft (31).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (30).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (29).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (28).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (27).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (26).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (25).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (24).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (23).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (22).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (21).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (20).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (19).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (18).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (17).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (16).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (15).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (14).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (13).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (12).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (11).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (10).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (9).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (8).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (7).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (6).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (5).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (4).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (3).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (2).JPG" alt="" class="blur-edges">
+                <img src="./images/webDraft (1).JPG" alt="" class="blur-edges">
+
+            </div>
+        </div>
+    </section>
+
+    <section class="page web" id="web3_3">
+        <h1 class="titleWeb titleWebImg"><b>專案展示影片</b></h1>
+        <section class="video-section">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/uoS62x8SqhY"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </section>
+    </section>
+
+    <section class="page webGame" id="web3_4">
+        <h1 class="titleWeb titleWebImg"><b>專案報告書</b></h1>
+        <iframe src="https://drive.google.com/file/d/1MQ7CyfDB0zNba5841Jr9r28_PyFLuGVx/preview" allow="autoplay"
+            frameborder="0" style="width: 100vw; height: 100vh; border: none;">
+        </iframe>
+    </section>
+
+    <!-- 浮出視窗（modal） -->
+    <div class="modal">
+        <img class="modalImg" src="" alt="放大圖" />
+    </div>
 
     <div id="cursorGlow"></div>
     <script src="./script.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            const img = document.querySelector('#web3_0 img');
+            const target = document.getElementById('web3_1');
+            if (!img || !target) return;
+
+            // 淡入圖片
+            img.classList.add('fade-in');
+
+            // 自動捲動動畫（5秒）
+            const duration = 5000;
+            const startY = window.scrollY;
+            const targetY = target.getBoundingClientRect().top + window.scrollY;
+            const distance = targetY - startY;
+            let startTime = null;
+
+            function easeInOutQuad(t) {
+                return t < 0.5
+                    ? 2 * t * t
+                    : -1 + (4 - 2 * t) * t;
+            }
+
+            function scrollAnimate(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeInOutQuad(progress);
+                window.scrollTo(0, startY + distance * eased);
+                if (progress < 1) {
+                    requestAnimationFrame(scrollAnimate);
+                }
+            }
+
+            requestAnimationFrame(scrollAnimate);
+        });
+    </script>
+
 </body>
 
 </html>

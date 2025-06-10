@@ -127,45 +127,66 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// const marquee = document.getElementById('gifMarquee');
+const titleIllustration = document.querySelector('.titleIllustration');
+if (titleIllustration) {
+    titleIllustration.addEventListener('mouseenter', () => {
+        titleIllustration.textContent = '草稿×灰階×彩稿×gif';
+        titleIllustration.style.color = '#cf9f62';
+    });
 
-// if (marquee) {
-//   const originalWidth = marquee.offsetWidth;
-//   marquee.innerHTML += marquee.innerHTML; // 複製一次內容
-//   let scrollAmount = 0;
+    titleIllustration.addEventListener('mouseleave', () => {
+        titleIllustration.textContent = '框架×甜點×動物×插畫';
+        titleIllustration.style.color = '';  // 回復原本顏色（或設定你原本想要的色）
+    });
+}
 
-//   function animateMarquee() {
-//     scrollAmount += 1;
+// 點擊圖片打開浮出視窗
+document.querySelectorAll('.blur-edges').forEach(img => {
+    img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
 
-//     // 🔥 改這裡：只要滑完「原始寬度」，就重置
-//     if (scrollAmount >= originalWidth) {
-//       scrollAmount = 0;
-//     }
+        modal.style.display = 'block';
+        modalImg.src = img.src;
+    });
+});
 
-//     marquee.style.transform = `translateX(-${scrollAmount}px)`;
-//     requestAnimationFrame(animateMarquee);
-//   }
+// 點背景關閉視窗
+const closeBtn = document.querySelector('.close-btn');
+if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+        document.getElementById('imageModal').style.display = 'none';
+    });
+}
 
-//   animateMarquee();
-// }
-
+const modal = document.getElementById('imageModal');
+if (modal) {
+    // 點背景（modal本身）關閉浮出視窗
+    modal.addEventListener('click', (e) => {
+        // 如果點擊目標是 modal 遮罩（非裡面圖片或其他元素）
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
 
 // 完整顯示遊戲畫面（不裁切）且等比例縮放（web.html）
 function scaleIframe() {
     const container = document.getElementById('webDisplay1');
     const iframe = document.getElementById('webIframe1');
 
+    if (!container || !iframe) return;
+
     const scale = Math.min(
         container.clientWidth / 1710,
         container.clientHeight / 900
     );
 
-    // 位移值是縮放後尺寸的一半
     const offsetX = (1710 * scale) / 2;
     const offsetY = (900 * scale) / 2;
 
     iframe.style.transform = `translate(-${offsetX}px, -${offsetY}px) scale(${scale})`;
-    iframe.style.opacity = '1'; // 顯示 iframe
+    iframe.style.opacity = '1';
 }
 
 window.addEventListener('resize', scaleIframe);
@@ -176,13 +197,16 @@ window.addEventListener('load', scaleIframe);
 
 function lazyLoadIframe(id) {
     const iframe = document.getElementById(id);
+    if (!iframe) return;
+
     const src = iframe.dataset.src;
+    if (!src) return;
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 iframe.src = src;
-                observer.unobserve(iframe); // 載入一次就停止觀察
+                observer.unobserve(iframe);
             }
         });
     });
@@ -190,8 +214,22 @@ function lazyLoadIframe(id) {
     observer.observe(iframe);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    lazyLoadIframe('webIframe2'); // 僅針對你那個有 alert 的 iframe 做 lazy-load
+
+// DOM 完整載入後，再決定是否註冊
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('webDisplay1');
+    const iframe = document.getElementById('webIframe1');
+
+    if (container && iframe) {
+        window.addEventListener('resize', scaleIframe);
+        window.addEventListener('load', scaleIframe);
+        scaleIframe(); // 初始執行
+    }
+
+    const lazyIframe = document.getElementById('webIframe2');
+    if (lazyIframe && lazyIframe.dataset.src) {
+        lazyLoadIframe('webIframe2');
+    }
 });
 
 
@@ -236,3 +274,76 @@ const observer5 = new IntersectionObserver((entries) => {
 document.querySelectorAll('.page').forEach((page) => {
     observer5.observe(page);
 });
+
+// 選取 modal 和圖片元素
+const modala = document.querySelector('.modal');
+const modalImgb = document.querySelector('.modalImg');
+
+// 綁定所有圖片點擊事件（可選範圍內圖片）
+document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', () => {
+        modala.classList.add('show');
+        modalImgb.src = img.src;
+    });
+});
+
+// 點 modal 背景關閉（只要不是點到圖片）
+modala.addEventListener('click', e => {
+    if (e.target === modala) {
+        modala.classList.remove('show');
+        modalImgb.src = "";
+    }
+});
+
+
+// 監聽所有輪播圖片點擊事件
+document.querySelectorAll('.carousel').forEach(carousel => {
+    carousel.addEventListener('click', e => {
+        if (e.target.tagName === 'IMG') {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = e.target.src;
+            modal.style.display = 'flex';
+        }
+    });
+});
+
+const modal2 = document.querySelector('.modal');       // 只取第一個 modal
+const modalImg = document.querySelector('.modalImg'); // 只取第一個 modalImg
+// 之前定義的 modal 跟 modalImg 都沿用
+
+const introduceImg = document.getElementById('introduceMySelf_img');
+if (introduceImg) {
+    introduceImg.addEventListener('click', () => {
+        modalImg.src = introduceImg.src;
+        modal.classList.add('show');
+    });
+}
+
+const gameProcessImg = document.getElementById('gameProcessImg');
+if (gameProcessImg) {
+    gameProcessImg.addEventListener('click', () => {
+        modalImg.src = gameProcessImg.src;
+        modal.classList.add('show');
+    });
+}
+
+if (modal2 && modalImg) {
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        carousel.addEventListener('click', e => {
+            if (e.target.tagName === 'IMG') {
+                modalImg.src = e.target.src;
+                modal2.classList.add('show');
+            }
+        });
+    });
+}
+
+if (modal2 && modalImg) {
+    modal2.addEventListener('click', e => {
+        if (e.target === modal2) {
+            modal2.classList.remove('show');
+            modalImg.src = '';  // 清空圖片 src，讓下次開啟不會瞬間閃爍上一張
+        }
+    });
+}
